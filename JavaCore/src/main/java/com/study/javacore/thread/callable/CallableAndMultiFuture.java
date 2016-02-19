@@ -17,6 +17,7 @@ public class CallableAndMultiFuture {
 		ExecutorService threadPool = Executors.newSingleThreadExecutor();
 		/*
 		 * 将生产新的异步任务与使用已完成任务的结果分离开来的服务。生产者 submit 执行的任务。使用者 take 已完成的任务，并按照完成这些任务的顺序处理它们的结果。
+		 * 也就是调用CompletionService的take方法是，会返回按完成顺序放回任务的结果，CompletionService内部维护了一个阻塞队列BlockingQueue，如果没有任务完成，take()方法也会阻塞。
 		 */
 		CompletionService<Integer> cs = new ExecutorCompletionService<Integer>(threadPool);
 		
