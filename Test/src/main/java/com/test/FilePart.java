@@ -144,7 +144,7 @@ public class FilePart implements Comparable<FilePart> {
 
 		@Override
 		public String toString() {
-			return "[" + index + "]";
+			return index.toString();
 		}
 		
 	}

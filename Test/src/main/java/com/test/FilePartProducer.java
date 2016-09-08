@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 
-import cn.com.sncfc.framework.core.trace.SimpleLogger;
+//import cn.com.sncfc.framework.core.trace.SimpleLogger;
 
 public class FilePartProducer<E> extends Thread {
 
-	private static SimpleLogger logger = SimpleLogger.getLogger(FilePartProcess.class);
+//	private static SimpleLogger logger = SimpleLogger.getLogger(FilePartProcess.class);
 	
 	private BlockingQueue<FilePart> queue;
 
@@ -59,20 +59,20 @@ public class FilePartProducer<E> extends Thread {
 			}
 			writer.flush();
 		} catch (Exception e) {
-			logger.error("exception occurs while creating part file", e);
+//			logger.error("exception occurs while creating part file", e);
 			filePart.setExp(e);
 		} finally {
 			try {
 				writer.close();
 			} catch (IOException e) {
 				// 忽略
-				logger.info("ignore close stream exception", e);
+//				logger.info("ignore close stream exception", e);
 			}
 		}
 		try {
 			queue.put(filePart);
 		} catch (InterruptedException e) {
-			logger.error("exception occurs while putting product into queue", e);
+//			logger.error("exception occurs while putting product into queue", e);
 		}
 	}
 
