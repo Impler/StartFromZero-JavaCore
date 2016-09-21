@@ -45,7 +45,7 @@ public class TestFileAPI {
 	 * 结论：t文件所在目录必须存在，t文件不能存在
 	 */
 	@Test
-	public void testRenameTo(){
+	public void testFileRenameTo(){
 		
 		File parent = new File("C:\\" + new Random().nextInt());
 		if(!parent.exists()){
@@ -118,4 +118,23 @@ public class TestFileAPI {
 		Assert.assertTrue(result);
 	}
 
+	
+	/**
+	 * 验证：目录s renameTo 目录t
+	 * 记录：
+	 */
+	@Test
+	public void testFolderRenameTo(){
+		File folder1 = new File("C:\\" + new Random().nextInt());
+		Assert.assertFalse(folder1.exists());
+		Assert.assertTrue(folder1.mkdirs());
+		System.out.println("创建目录：" + folder1);
+		
+		File fd2 = new File("C:\\" + new Random().nextInt());
+		Assert.assertFalse(fd2.exists());
+		boolean result = folder1.renameTo(fd2);
+		System.out.println(folder1 + "更名为：" + fd2 + ":" + result);
+		Assert.assertTrue(result);
+	}
+	
 }
