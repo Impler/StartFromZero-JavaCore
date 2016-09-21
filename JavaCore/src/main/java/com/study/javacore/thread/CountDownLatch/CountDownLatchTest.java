@@ -20,11 +20,11 @@ public class CountDownLatchTest {
 		ExecutorService threadPool = Executors.newCachedThreadPool();
 
 		// 准备信号，等待所有运动员准备完毕，才能发出起跑命令
-		CountDownLatch prepare = new CountDownLatch(NUM);
+		final CountDownLatch prepare = new CountDownLatch(NUM);
 		// 起跑信号，发出起跑命令
-		CountDownLatch begin = new CountDownLatch(1);
+		final CountDownLatch begin = new CountDownLatch(1);
 		// 结束信号，等待所有运动员跑步完毕，才算结束
-		CountDownLatch end = new CountDownLatch(NUM);
+		final CountDownLatch end = new CountDownLatch(NUM);
 
 		for (int i = 0; i < NUM; i++) {
 			// 准备线程

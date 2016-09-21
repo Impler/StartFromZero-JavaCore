@@ -21,7 +21,7 @@ public class CyclicBarrierTest {
 		final int NUM = 3;
 
 		ExecutorService threadPool = Executors.newCachedThreadPool();
-		CyclicBarrier barrier = new CyclicBarrier(NUM);
+		final CyclicBarrier barrier = new CyclicBarrier(NUM);
 
 		for (int i = 0; i < NUM; i++) {
 			Runnable runnable = new Runnable() {
